@@ -31,7 +31,7 @@ const Fib = () => {
   };
 
   const renderSeenIndexes = () => {
-    return seenIndexes.map(({ number }) => number).joint(", ");
+    return seenIndexes.map(({ number }) => number).join(", ");
   };
 
   const renderValues = () => {
