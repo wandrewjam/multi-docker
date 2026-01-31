@@ -5,7 +5,7 @@ const redisClient = redis.createClient({
   socket: {
     host: keys.redisHost,
     port: keys.redisPort,
-    retry_strategy: () => 1000,
+    reconnectStrategy: () => 1000,
   },
 });
 
@@ -20,5 +20,5 @@ function fib(index) {
 }
 
 sub.subscribe("insert", (message) => {
-  redisClient.hset("values", message, fib(parseInt(message)));
+  redisClient.hSet("values", message, fib(parseInt(message)));
 });
